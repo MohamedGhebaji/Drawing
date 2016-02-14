@@ -8,8 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+enum ShapeType: Int {
+    case Rect, Oval, Line
+}
 
+class ViewController: UIViewController {
+    @IBOutlet private weak var drawingView: DrawingView!
+    
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +26,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    //MARK: - Actions
+    @IBAction func changeShapeAction(sender: UISegmentedControl) {
+        drawingView.shapeType = ShapeType(rawValue: sender.selectedSegmentIndex) ?? .Rect
+    }
 }
 

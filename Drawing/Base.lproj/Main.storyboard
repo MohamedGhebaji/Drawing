@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Drawing" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,44 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OoO-LH-f6o" customClass="DrawingView" customModule="Drawing" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="571"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Mi3-yn-Lsg">
+                                <rect key="frame" x="0.0" y="571" width="600" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="P0f-LT-SrQ"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Rect"/>
+                                    <segment title="Oval"/>
+                                    <segment title="Line"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeShapeAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="ueM-9S-PcS"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mi3-yn-Lsg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2uf-4T-cdx"/>
+                            <constraint firstAttribute="trailing" secondItem="OoO-LH-f6o" secondAttribute="trailing" id="Esa-RX-IlI"/>
+                            <constraint firstItem="OoO-LH-f6o" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="H4j-gI-Zxb"/>
+                            <constraint firstAttribute="trailing" secondItem="Mi3-yn-Lsg" secondAttribute="trailing" id="cTb-uN-uM7"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mi3-yn-Lsg" secondAttribute="bottom" id="dvU-pm-oyA"/>
+                            <constraint firstItem="OoO-LH-f6o" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ggY-uO-lqA"/>
+                            <constraint firstItem="Mi3-yn-Lsg" firstAttribute="top" secondItem="OoO-LH-f6o" secondAttribute="bottom" id="itu-wa-Sga"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="drawingView" destination="OoO-LH-f6o" id="qJY-bb-k3A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="249" y="307"/>
         </scene>
     </scenes>
 </document>
